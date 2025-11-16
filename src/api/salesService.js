@@ -30,7 +30,7 @@ const salesService = {
     return response.detallesVenta;
   },
   getSaleDetailsByIdDetails: async (detailId) => {
-    const url = `http://localhost:3001/api/v1/detalles/${detailId}`;
+    const url = `${BASE_URL}/detalles/${detailId}`;
     const response = await apiCall(url);
     console.log("respuesta", response.data);
     return response.data;

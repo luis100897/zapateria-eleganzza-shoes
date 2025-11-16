@@ -5,6 +5,7 @@ import { Typography, CircularProgress, Box } from "@mui/material";
 import returnService from "../../api/returnService";
 import { ReturnForm } from "../../components/Returns/ReturnForm";
 import salesService from "../../api/salesService";
+import { useAuth } from "../../context/AuthContext";
 
 const DEFAULT_INITIAL_DATA = {
   id_detalle: "",
@@ -24,6 +25,8 @@ export const ReturnFormWrapper = () => {
   const [isSaving, setIsSaving] = useState(false);
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
+  const { user } = useAuth();
+  const userRole = user?.rol;
 
   const handleClearError = () => {
     if (error) {
